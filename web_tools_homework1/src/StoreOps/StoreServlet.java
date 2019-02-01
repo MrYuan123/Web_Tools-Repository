@@ -16,37 +16,28 @@ import java.util.List;
 public class StoreServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession(true);
+        String kind = request.getParameter("kind");
 
-//        if(session.isNew()){
-////            session.setAttribute("books", new ArrayList<String>());
-////            session.setAttribute("music", new ArrayList<String>());
-////            session.setAttribute("laptop", new ArrayList<String>());
-//            session.setAttribute("books","12345678");
-//            System.out.println("Create a new Session!");
-//        }else{
-//            System.out.println(session.getAttribute("books"));
-//        }
+        // session.invalidate();
+        Enumeration<String> names =session.getAttributeNames();
+        while(names.hasMoreElements()){
+            String nowname = names.nextElement();
+            // System.out.println(nowname + " : " + kind);
+            if(nowname.contains(kind)){
+                session.removeAttribute(nowname);
+            }
+        }
 
-//        String kind = request.getParameter("kind");
-//        List<String> newlist = new ArrayList<String>();
-//        Enumeration ParamterNames = request.getParameterNames();
-//        while(ParamterNames.hasMoreElements()){
-//            String paramName = (String)ParamterNames.nextElement();
-//            String paramValue = request.getParameter(paramName);
-//            newlist.add(paramValue);
-//            System.out.println(paramValue);
-//        }
+        Enumeration ParamterNames = request.getParameterNames();
+        while(ParamterNames.hasMoreElements()){
+            String paramName = (String)ParamterNames.nextElement();
+            if(!paramName.equals("kind")){
+                String paramValue = request.getParameter(paramName);
+                session.setAttribute(paramName, paramValue);
+            }
+        }
 
-//        if(kind.equals("books")){
-//            session.setAttribute("books", newlist);
-//
-//        }else if(kind.equals("music")){
-//            session.setAttribute("music", newlist);
-//        }else{
-//            session.setAttribute("laptop", newlist);
-//        }
-
-        request.getRequestDispatcher("/cart.jsp").forward(request, response);
+        request.getRequestDispatcher("/ShoppingStore.html").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
