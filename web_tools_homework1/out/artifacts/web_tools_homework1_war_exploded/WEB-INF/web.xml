@@ -48,15 +48,4 @@
         <servlet-name>StoreServlet</servlet-name>
         <url-pattern>/Store</url-pattern>
     </servlet-mapping>
-
-    <servlet>
-        <servlet-name>CartServlet</servlet-name>
-        <servlet-class>StoreOps.CartServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>CartServlet</servlet-name>
-        <url-pattern>/cart</url-pattern>
-    </servlet-mapping>
-
-
 </web-app>
