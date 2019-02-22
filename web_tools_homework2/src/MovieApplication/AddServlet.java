@@ -29,12 +29,12 @@ public class AddServlet extends HttpServlet {
             boolean result = dbsOps.submitMovie(nowlist);
             if(result == true){
                 request.setAttribute("result", " Movie has been added!");
-                request.setAttribute("formerpage", "/addmovie");
+                request.setAttribute("formerpage", "/homework2-2/addmovie");
                 request.getRequestDispatcher("/ResultJSP.jsp").forward(request, response);
             }
             else{
                 request.setAttribute("result", "Add Movie Fails!");
-                request.setAttribute("formerpage", "/addmovie");
+                request.setAttribute("formerpage", "/homework2-2/addmovie");
                 request.getRequestDispatcher("/ResultJSP.jsp").forward(request, response);
             }
         }catch (Exception e){

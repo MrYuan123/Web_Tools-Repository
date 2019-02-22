@@ -46,12 +46,12 @@ public class BookServlet extends HttpServlet {
             boolean result = dbsOps.submitIssue(nowlist);
             if(result == true){
                 request.setAttribute("result", nowlist.size() + " books has been added!");
-                request.setAttribute("formerpage", "/part8");
+                request.setAttribute("formerpage", "/homework2-2/part8");
                 request.getRequestDispatcher("/ResultJSP.jsp").forward(request, response);
             }
             else{
                 request.setAttribute("result", "Add Books Fails!");
-                request.setAttribute("formerpage", "/part8");
+                request.setAttribute("formerpage", "/homework2-2/part8");
                 request.getRequestDispatcher("/ResultJSP.jsp").forward(request, response);
             }
         }catch (Exception e){

@@ -31,8 +31,8 @@
                     <label for="exampleSelect1">--Find Action</label>
                     <select class="form-control" id="exampleSelect1" onchange="window.location=this.value;">
                         <option></option>
-                        <option value="/searchmovie">Browser Movies</option>
-                        <option value="/addmovie">Add The Movies To Database</option>
+                        <option value="/homework2-2/searchmovie">Browser Movies</option>
+                        <option value="/homework2-2/addmovie">Add The Movies To Database</option>
                     </select>
                 </div>
             </fieldset>

@@ -24,7 +24,7 @@
 <div class="row">
     <div class="col-md-4"></div>
     <div class="col-md-4">
-        <form action="/addmovie" method="post">
+        <form action="/homework2-2/addmovie" method="post">
             <fieldset>
                 <legend>Add Movie</legend>
                 <div class="form-group">

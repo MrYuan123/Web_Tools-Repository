@@ -43,7 +43,7 @@
             return
         }
 
-        var left = "<div class='col-md-2'></div><div class='col-md-8'><h2></h2><form action='/part8' method='post'><fieldset><table class='table table-bordered'><tr><th>ISBN</th><th>Book Title</th><th>Authors</th> <th>Price</th></tr>";
+        var left = "<div class='col-md-2'></div><div class='col-md-8'><h2></h2><form action='/homework2-2/part8' method='post'><fieldset><table class='table table-bordered'><tr><th>ISBN</th><th>Book Title</th><th>Authors</th> <th>Price</th></tr>";
 
         for(var m = 1; m <= counts; m++){
             addItem = "<tr>";

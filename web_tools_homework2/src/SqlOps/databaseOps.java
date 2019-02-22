@@ -110,7 +110,7 @@ public class databaseOps {
     public List<List<String>> SearchOps(String type, String keyword){
         ArrayList<List<String>> returnlist = new ArrayList<List<String>>();
 
-        String sql = "select * from moviedb where " + type + '=' + keyword + ";";
+        String sql = "select * from moviedb where " + type + "=\"" + keyword + "\";";
         ArrayList<String> title = new ArrayList<String>();
         title.add("title");
         title.add("actor");
@@ -131,7 +131,7 @@ public class databaseOps {
                 returnlist.add(sublist);
             }
         }catch (Exception e){
-            System.out.println("Search Data Fails!");
+            System.out.println("In database Ops, there is a error!");
         }finally {
             return returnlist;
         }
