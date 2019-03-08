@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--<mvc:annotation-driven />-->
+    <!--<context:component-scan base-package="controller" />-->
+    <!--id="beanNameUrlHandlerMapping"-->
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+
+    <!--ControllerClassNameHandlerMapping-->
+    <bean class = "org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
+    <bean class = "MovieSection.ClassNameSection.ClassNameMovieController" />
+    <bean class = "MovieSection.ClassNameSection.ClassNameAddController"/>
+    <bean class="MovieSection.ClassNameSection.ClassNameSearchController" />
+
+
+    <!--&lt;!&ndash;BeanNameUrlHandlerMapping&ndash;&gt;-->
+    <!--<bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>-->
+    <!--<bean name="/movie" class="MovieSection.MovieController" />-->
+    <!--<bean name="/addmovie" class="MovieSection.AddController" />-->
+    <!--<bean name="/searchmovie" class="MovieSection.SearchController" />-->
+    <!--<bean name="/csv" class="CsvController.CsvController" />-->
+
+
+
+    <!--&lt;!&ndash;simpleurlhandlermapping&ndash;&gt;-->
+
+    <!--<bean class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">-->
+        <!--<property name = "mappings">-->
+            <!--<props>-->
+                <!--<prop key = "/part5/movie">movieController</prop>-->
+                <!--<prop key = "/part5/addmovie">addMovieController</prop>-->
+                <!--<prop key = "/part5/searchmovie">searchMovieController</prop>-->
+            <!--</props>-->
+        <!--</property>-->
+    <!--</bean>-->
+    <!--<bean id = "movieController" class = "MovieSection.MovieController" />-->
+    <!--<bean id = "addMovieController" class = "MovieSection.AddController"/>-->
+    <!--<bean id = "searchMovieController" class = "MovieSection.SearchController" />-->
+</beans>
