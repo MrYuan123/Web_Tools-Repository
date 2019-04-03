@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+    <!--simpleurlhandlermapping-->
+    <bean class = "org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name = "mappings">
+            <props>
+                <prop key = "/quiz/*.htm">quizController</prop>
+                <prop key = "/quiz2.htm">quiz2Controller</prop>
+                <prop key = "/movie/*.htm">MovieController</prop>
+                <prop key = "/movie/add">addMovieController</prop>
+                <prop key = "/movie/search">searchMovieController</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="quiz2Controller" class="quizController.quiz2Controller">
+        <property name="successView">
+            <value>quiz2/result</value>
+        </property>
+        <property name="cancelView">
+            <value>quiz2/main</value>
+        </property>
+        <property name="commandClass">
+            <value>POJOs.answerPOJO</value>
+        </property>
+        <property name="pages">
+            <list>
+                <value>quiz2/main</value>
+                <value>quiz2/question1</value>
+                <value>quiz2/question2</value>
+                <value>quiz2/question3</value>
+                <value>quiz2/question4</value>
+                <value>quiz2/result</value>
+            </list>
+        </property>
+    </bean>
+    <bean id = "quizController" class = "quizController.quizController" />
+    <bean id = "MovieController" class = "movieController.MovieController" />
+    <bean id = "addMovieController" class = "movieController.addMovieController">
+        <property name="validator" ref="movieValidator"/>
+        <property name="formView" value="AddMovieJSP"/>
+        <property name="successView" value="MovieJSP"></property>
+    </bean>
+
+    <bean id="searchMovieController" class="movieController.searchMovieController">
+        <property name="formView" value="SearchMovieJSP"></property>
+        <property name="successView" value="MovieDisplay"></property>
+    </bean>
+
+    <bean id="movieValidator" class="movieController.movieValidator"></bean>
+</beans>
